@@ -1,0 +1,40 @@
+
+1. Instalacja Ubuntu/Debian
+
+Instalacja biblioteki openCV do obsługi obrazu przez pythona
+
+	sudo apt-get install python-opencv
+
+Instalacja mod python dla apache
+
+	sudo apt-get install libapache2-mod-python
+
+Dodać do pliku konfiguracyjnego /etc/apache2/sites-available/default 
+
+        <Directory /var/www/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+                AddHandler mod_python .py
+                PythonHandler mod_python.publisher
+                PythonDebug On
+        </Directory>
+
+Restart serwera apache
+
+	sudo /etc/init.d/apache2 restart
+
+
+Należy nadać uprawnienia dostępu do urządzeń, by
+program miał do nich dostęp
+
+	sudo chmod 777 /dev/video0
+	sudo chmod 777 /dev/ttyUSB0
+
+Nadać uprawnienia do zapisu plikowi ze zdjeciem
+
+	sudo chmod 777 cam.jpg
+
+Wpisanie ścieżki do obrazu w zmiennej IMG_PATH w pliku index.py
+
