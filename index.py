@@ -6,8 +6,10 @@ from mod_python import util
 import time
 import serial
 
+#Config
 IMG_PATH = "/var/www/camera/"
 IMG_NAME = time.strftime("%y%j%H%M%S", time.gmtime())
+
 
 try:
    ser = serial.Serial(
